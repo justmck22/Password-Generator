@@ -78,28 +78,44 @@ var specialCharacters = window.prompt("Would you like to include special charact
   }
   else if(specialCharacters === "yes" || specialCharacters === "no"){
           
-    if(specialCharacters === "yes"){
+    
+   if(specialCharacters === "yes"){
     var specialCharactersValue = "!@#$%^&*()_+";
     }
-    else if(specialCharactersValue === "no"){
-    var specialCharactersValue ="";
-    }
 
-  }
+    else if(specialCharactersValue === "no"){
+      var specialCharactersValue ="";
+      }
+    
+      else if(specialCharacters === "no" && lowerCaseValue === "" && upperCaseValue === "" && numericalPromptValue === "" ){
+        alert("You cannot choose no for each prompt. Please choose yes for at least one prompt");
+       promptquestions();
+      }
+    }
+   
+    
+   
+
+  
       
-  }
+  
 
       
   
 
 
+var passwordCharacters = lowerCaseValue + upperCaseValue + specialCharactersValue + numericalPromptValue;
+
+
 var passwordBlank = []
 
 for (let i = 0; i < passwordLength; i++) {
-var allChoices = passwordcharacters [Math.floor(Math.random() * password.length)];
+var allChoices = passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
 passwordBlank.push(allChoices);
 }
 
+
 // Join and return password
 var password = passwordBlank.join("");
-returnpassword
+return password;
+}
